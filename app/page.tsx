@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProjectCol from "@/components/projects/project-item";
+import ProjectItem from "@/components/project-item";
 import { Balancer } from "react-wrap-balancer";
 import { TextBlockWrapper } from "@/components/ui/text-block-wrapper";
 import { Button } from "@/components/ui/button";
@@ -263,7 +263,7 @@ export default async function Home() {
 						</div>
 						<div className="flex flex-col gap-1 pt-2">
 							{projects.slice(0, 3).map((p, i: number) => (
-								<ProjectCol
+								<ProjectItem
 									title={p.name}
 									desc={p.summary}
 									href={p.link}

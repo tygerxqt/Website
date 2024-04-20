@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ProjectCol({
+export default function ProjectItem({
 	href,
 	title,
 	desc,

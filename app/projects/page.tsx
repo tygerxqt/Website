@@ -1,4 +1,4 @@
-import ProjectCol from "@/components/projects/project-item";
+import ProjectItem from "@/components/project-item";
 import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
 				</div>
 				{projects.map((p, i: number) => (
 					<>
-						<ProjectCol
+						<ProjectItem
 							title={p.name}
 							desc={p.summary}
 							href={p.link}
