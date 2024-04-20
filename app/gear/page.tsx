@@ -1,6 +1,29 @@
-import GearCard from "@/components/gear/card";
+import Icons from "@/components/icons";
 import { Tool, cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
+import Link from "next/link";
+
+function GearItem({ tool }: { tool: Tool }) {
+	return (
+		<>
+			<div className="flex flex-col justify-between w-full group">
+				<Link href={tool.url} passHref target="_blank">
+					<div className="flex flex-col gap-0">
+						<div className="flex flex-row items-center w-full gap-2">
+							<h2 className="text-lg font-medium group-hover:underline">
+								{tool.name}
+							</h2>
+							<Icons.External className="w-4 h-4 text-neutral-600 dark:text-neutral-500" />
+						</div>
+						<p className="text-sm dark:text-neutral-400 text-neutral-500">
+							{tool.summary}
+						</p>
+					</div>
+				</Link>
+			</div>
+		</>
+	);
+}
 
 export default async function GearPage() {
 	const rawGear = await cms.request(readItems("gear"));
@@ -50,7 +73,7 @@ export default async function GearPage() {
 							</div>
 							<div className="flex flex-col items-center w-full gap-4">
 								{tools[category].map((tool) => (
-									<GearCard key={tool.id} tool={tool} />
+									<GearItem key={tool.id} tool={tool} />
 								))}
 							</div>
 						</div>

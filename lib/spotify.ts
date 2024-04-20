@@ -106,8 +106,9 @@ export const getNowPlaying = async () => {
 			Authorization: `Bearer ${access_token}`
 		},
 		next: {
-			revalidate: 30
-		}
+			revalidate: 30,
+		},
+		cache: "no-store"
 	});
 
 	if (res.status !== 200) return;

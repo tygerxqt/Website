@@ -9,7 +9,7 @@ import {
 import { DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import Icons from "@/components/icons";
-import SideNav from "./side";
+import SideNav from "./mobile";
 
 export default function NavBar() {
 	return (

@@ -14,7 +14,7 @@ export default async function BlogPage() {
 				<div className="pb-4">
 					<h2 className="text-2xl font-bold sm:text-3xl font-display">Blog</h2>
 					<p className="text-sm text-neutral-500 dark:text-neutral-400">
-						All of my blog posts and tutorials. I <s>try</s> to write about web
+						All of my blog posts and tutorials. I <s>try to</s> write about web
 						development, programming, and games.
 					</p>
 				</div>

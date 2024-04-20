@@ -7,7 +7,11 @@ import Icons from "../icons";
 import { Button } from "../ui/button";
 import React from "react";
 
-export default function SideNav({ children }: { children?: React.ReactNode }) {
+export default function MobileNav({
+	children,
+}: {
+	children?: React.ReactNode;
+}) {
 	return (
 		<Drawer.Root direction="right" shouldScaleBackground={true}>
 			<Drawer.Trigger asChild>{children}</Drawer.Trigger>

@@ -1,4 +1,4 @@
-import ProjectCol from "@/components/projects/col";
+import ProjectCol from "@/components/projects/project-item";
 import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
