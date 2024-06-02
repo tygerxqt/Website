@@ -6,6 +6,7 @@ interface Project {
 	date_updated: Date;
 	name: string;
 	summary: string;
+	featured: boolean;
 	link: string;
 	private: boolean;
 	year: string;

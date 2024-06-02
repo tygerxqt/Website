@@ -262,16 +262,19 @@ export default async function Home() {
 							</Link>
 						</div>
 						<div className="flex flex-col gap-1 pt-2">
-							{projects.slice(0, 3).map((p, i: number) => (
-								<ProjectItem
-									title={p.name}
-									desc={p.summary}
-									href={p.link}
-									year={p.year}
-									img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
-									key={i}
-								/>
-							))}
+							{projects
+								.filter((x) => x.featured === true)
+								.slice(0, 3)
+								.map((p, i: number) => (
+									<ProjectItem
+										title={p.name}
+										desc={p.summary}
+										href={p.link}
+										year={p.year}
+										img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
+										key={i}
+									/>
+								))}
 						</div>
 					</div>
 				</div>
