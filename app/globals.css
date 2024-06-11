@@ -96,6 +96,11 @@ h4 {
 	margin-bottom: 1em !important;
 }
 
+.prose blockquote {
+	quotes: none;
+	@apply text-neutral-500 dark:text-neutral-400
+}
+
 pre::-webkit-scrollbar {
 	display: none;
 }

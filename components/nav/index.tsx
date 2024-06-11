@@ -9,7 +9,7 @@ import {
 import { DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import Icons from "@/components/icons";
-import SideNav from "./mobile";
+import MobileNav from "./mobile";
 
 export default function NavBar() {
 	return (
@@ -77,7 +77,7 @@ export default function NavBar() {
 
 					<div>
 						<ThemeToggle />
-						<SideNav>
+						<MobileNav>
 							<Button
 								variant="ghost"
 								className="text-black sm:hidden dark:text-white"
@@ -85,7 +85,7 @@ export default function NavBar() {
 							>
 								<Icons.Menu />
 							</Button>
-						</SideNav>
+						</MobileNav>
 					</div>
 				</div>
 			</nav>

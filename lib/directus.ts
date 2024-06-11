@@ -63,6 +63,7 @@ export interface Post {
 	content: string;
 	heading: string;
 	hero: string;
+	card_img: string;
 	summary: string;
 }
 

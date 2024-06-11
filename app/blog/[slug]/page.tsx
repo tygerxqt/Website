@@ -1,4 +1,3 @@
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Post, cms } from "@/lib/directus";
@@ -20,7 +19,11 @@ export async function generateStaticParams() {
 	});
 }
 
-export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = async ({
+	params,
+}: {
+	params: { slug: string };
+}) => {
 	const post = await cms.request(readItem("posts", params.slug)).then((res) => {
 		return res;
 	});

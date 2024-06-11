@@ -1,6 +1,5 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 import { highlight } from "sugar-high";
 
@@ -45,7 +44,7 @@ function CustomLink(props: any) {
 }
 
 function RoundedImage(props: any) {
-	return <Image alt={props.alt} className="rounded-lg" {...props} />;
+	return <img alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 function slugify(str: string) {
@@ -91,7 +90,7 @@ const components = {
 	h4: createHeading(4),
 	h5: createHeading(5),
 	h6: createHeading(6),
-	Image: RoundedImage,
+	img: RoundedImage,
 	a: CustomLink,
 	code: Code,
 	Table,

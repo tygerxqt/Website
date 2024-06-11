@@ -13,7 +13,7 @@ export default function MobileNav({
 	children?: React.ReactNode;
 }) {
 	return (
-		<Drawer.Root direction="right" shouldScaleBackground={true}>
+		<Drawer.Root direction="right">
 			<Drawer.Trigger asChild>{children}</Drawer.Trigger>
 			<Drawer.Portal>
 				<Drawer.Overlay className="fixed inset-0 bg-black/50" />

@@ -22,14 +22,13 @@ export default function Gallery({
 				className="w-full"
 				columnsCountBreakPoints={breakPoints ?? { 350: 1, 750: 2, 900: 3 }}
 			>
-				<Masonry gutter="1rem">
+				<Masonry gutter="1.5rem">
 					{photos.map((img) => {
 						return (
 							<div key={img.id} className="flex flex-col p-0 m-0 group">
 								<Image
 									src={process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + img.image}
 									alt={img.name}
-									loading="lazy"
 									width={1080}
 									height={1080}
 									quality={25}

@@ -42,11 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			className={`${inter.variable} ${sora.variable} ${literata.variable} ${jetbrainsMono.variable}`}
 		>
 			<body className="bg-neutral-100 dark:bg-neutral-900">
-				<Script
-					async
-					src="https://analytics.tygr.dev/script.js"
-					data-website-id="817137dd-63e0-4d02-bf17-a0f7723860b2"
-				/>
+				{process.env.NODE_ENV === "production" && (
+					<Script
+						async
+						src="https://analytics.tygr.dev/script.js"
+						data-website-id="817137dd-63e0-4d02-bf17-a0f7723860b2"
+					/>
+				)}
 				<div
 					className="w-full min-h-screen p-2 sm:p-4 bg-neutral-100 dark:bg-neutral-900"
 					vaul-drawer-wrapper=""
