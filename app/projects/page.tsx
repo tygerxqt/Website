@@ -1,4 +1,4 @@
-import ProjectItem from "@/components/project-item";
+import ProjectItem from "@/app/projects/item";
 import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
@@ -20,6 +20,7 @@ export default async function ProjectsPage() {
 				{projects.map((p, i: number) => (
 					<>
 						<ProjectItem
+							key={i}
 							title={p.name}
 							desc={p.summary}
 							href={p.link}

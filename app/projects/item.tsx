@@ -43,17 +43,18 @@ export default function ProjectItem({
 				/>
 			</div>
 			<a
-				className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
+				className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
 				target="_blank"
 				rel="noopener noreferrer"
 				href={href}
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
 			>
-				<p className="gap-1 font-semibold">
+				<p className="flex flex-wrap items-center gap-1 font-semibold sm:flex-row sm:flex-nowrap sm:gap-2 sm:whitespace-nowrap">
 					{title}{" "}
+					<span className="text-neutral-500 dark:text-neutral-400">•</span>{" "}
 					<span className="inline-block text-sm font-normal text-neutral-500">
-						• {desc}
+						{desc}
 					</span>
 				</p>
 				<span className="hidden w-full sm:flex sm:flex-row sm:items-center ">

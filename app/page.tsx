@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProjectItem from "@/components/project-item";
+import ProjectItem from "@/components/item";
 import { Balancer } from "react-wrap-balancer";
 import { TextBlockWrapper } from "@/components/ui/text-block-wrapper";
 import { Button } from "@/components/ui/button";
