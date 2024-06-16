@@ -9,7 +9,6 @@ export default async function Footer() {
 					<div className="flex flex-col min-w-full">
 						<hr className="w-full border border-black/10 dark:border-white/10" />
 						<div className="flex flex-col items-center gap-2 px-2 py-4">
-							{/* Links */}
 							<div className="grid justify-between w-full grid-cols-3">
 								<div className="flex flex-col items-start justify-start gap-2">
 									<Link href="/">
@@ -54,17 +53,18 @@ export default async function Footer() {
 											Gallery
 										</Button>
 									</Link>
-									<Link href="/links">
-										<Button
-											variant="link"
-											className="p-0 py-1 text-sm sm:text-base"
-										>
-											Links
-										</Button>
-									</Link>
+									{/* <Link href="/music"> */}
+									<Button
+										variant="link"
+										className="p-0 py-1 text-sm sm:text-base"
+										disabled
+									>
+										Music
+									</Button>
+									{/* </Link> */}
 								</div>
 								<div className="flex flex-col items-end justify-end gap-2">
-									<Link href="https://github.com/tygrdev">
+									<Link href="https://github.com/tygrxqt">
 										<Button
 											variant="link"
 											className="p-0 py-1 text-sm sm:text-base"
@@ -72,12 +72,12 @@ export default async function Footer() {
 											GitHub
 										</Button>
 									</Link>
-									<Link href="https://twitter.com/tygrdev">
+									<Link href="https://bsky.app/profile/tygr.dev">
 										<Button
 											variant="link"
 											className="p-0 py-1 text-sm sm:text-base"
 										>
-											Twitter
+											BlueSky
 										</Button>
 									</Link>
 									<Link href="https://www.instagram.com/tygrdev">

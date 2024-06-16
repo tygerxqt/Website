@@ -54,21 +54,34 @@ export default async function Home() {
 							<Balancer>
 								<span className="flex flex-row items-center gap-2">
 									<span className="text-neutral-500">yo, i&apos;m ty! aka</span>{" "}
-									<NameSwitch names={["tygrdev", "tygrxqt", "whokilledcold"]} />
+									<NameSwitch
+										names={["tygrdev", "tygrxqt", "tyger796", "whokilledcold"]}
+									/>
 								</span>
 								<span className="text-neutral-500">a </span>
 								full-stack{" "}
-								<span className="text-neutral-500">web developer, </span>
+								<span className="text-neutral-500">web developer. </span>
 								<br />
-								<span className="text-neutral-500">and founder of </span>
+								<span className="text-neutral-500">founder of </span>
 								<a
 									target="_blank"
 									href="https://lofu.studio"
-									className="inline-flex flex-row items-center gap-2 hover:text-neutral-800 dark:hover:text-neutral-200"
+									className="inline-flex flex-row items-center hover:text-neutral-800 dark:hover:text-neutral-200"
 								>
-									lofu studio
+									lofu
 									<span>
-										<Icons.Lofu className="w-8 h-8 dark:text-neutral-400 text-neutral-600" />
+										<Icons.Lofu className="w-8 h-8 mx-2 dark:text-neutral-400 text-neutral-600" />
+									</span>
+								</a>
+								<span className="text-neutral-500">and </span>
+								<a
+									target="_blank"
+									href="https://nordstud.io"
+									className="inline-flex flex-row items-center hover:text-neutral-800 dark:hover:text-neutral-200"
+								>
+									nord
+									<span>
+										<Icons.Nord className="w-8 h-8 mx-2 dark:text-neutral-400 text-neutral-600" />
 									</span>
 								</a>
 							</Balancer>
@@ -118,10 +131,8 @@ export default async function Home() {
 							<p className="text-neutral-600 dark:text-neutral-400">Rust</p>
 						</div>
 						<div className="flex flex-row gap-2">
-							<Icons.HTML className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">
-								HTML & CSS
-							</p>
+							<Icons.Golang className="w-6 h-6" />
+							<p className="text-neutral-600 dark:text-neutral-400">Golang</p>
 						</div>
 					</div>
 					<div className="flex flex-col gap-3">
@@ -182,27 +193,6 @@ export default async function Home() {
 								about how they worked, so I asked Google. I looked at multiple
 								JavaScript tutorials and tried to create my bot for people to
 								use.
-								<br />
-								<br />
-								My first Discord bot was called &quot;Cookie&quot; (later
-								renamed to{" "}
-								<Link
-									href="https://github.com/lofustudio/arisu"
-									className="text-blue-500 dark:text-blue-400"
-									target="_blank"
-								>
-									Arisu
-								</Link>
-								), a moderator bot explicitly built for my Discord server. Next
-								came Mimi, an experimental music bot. And finally,{" "}
-								<Link
-									href="https://github.com/nord-studio/atlas"
-									target="_blank"
-									className="text-blue-500 dark:text-blue-400"
-								>
-									Atlas
-								</Link>
-								, a public moderation bot.
 								<br />
 								<br />
 								After a while, I ran out of ideas for new things to add to these

@@ -13,17 +13,6 @@ interface Project {
 	image: string;
 }
 
-export interface Link {
-	id: number;
-	date_created: Date;
-	date_updated: Date;
-	name: string;
-	summary: string;
-	link: string;
-	type: string[];
-	private: boolean;
-}
-
 export interface Image {
 	id: number;
 	status: "published" | "draft" | "archived";
@@ -40,17 +29,9 @@ export interface Tool {
 	id: number;
 	date_updated?: Date;
 	dob?: Date;
-	dod?: Date;
 	name: string;
 	summary: string;
 	category: string;
-	status:
-		| "alive"
-		| "replaced"
-		| "repaired"
-		| "broken"
-		| "discontinued"
-		| "dead";
 	url: string;
 }
 
@@ -69,7 +50,6 @@ export interface Post {
 
 interface Schema {
 	projects: Project[];
-	links: Link[];
 	gallery: Image[];
 	gear: Tool[];
 	posts: Post[];

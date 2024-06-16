@@ -1,12 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "../theme-toggle";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-import { DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import Icons from "@/components/icons";
 import MobileNav from "./mobile";
@@ -36,43 +30,21 @@ export default function NavBar() {
 					</Link>
 
 					<div className="hidden sm:flex">
-						<a href="/">
+						<Link href="/">
 							<Button variant="link">About</Button>
-						</a>
-						<a href="/projects">
+						</Link>
+						<Link href="/projects">
 							<Button variant="link">Projects</Button>
-						</a>
-						<a href="/blog">
+						</Link>
+						<Link href="/blog">
 							<Button variant="link">Blog</Button>
-						</a>
-						<DropdownMenu>
-							<DropdownMenuTrigger asChild className="outline-none">
-								<Button variant="link">
-									<Icons.ChevronDown />
-									<span className="sr-only">More items</span>
-								</Button>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent>
-								<Link href="/gallery">
-									<DropdownMenuItem>
-										<Icons.Image className="w-4 h-4 mr-2" />
-										<span>Gallery</span>
-									</DropdownMenuItem>
-								</Link>
-								<Link href="/gear">
-									<DropdownMenuItem>
-										<Icons.Wrench className="w-4 h-4 mr-2" />
-										<span>Gear</span>
-									</DropdownMenuItem>
-								</Link>
-								<Link href="/links">
-									<DropdownMenuItem>
-										<Icons.Link className="w-4 h-4 mr-2" />
-										<span>Links</span>
-									</DropdownMenuItem>
-								</Link>
-							</DropdownMenuContent>
-						</DropdownMenu>
+						</Link>
+						<Link href="/gallery">
+							<Button variant="link">Gallery</Button>
+						</Link>
+						<Link href="/gear">
+							<Button variant="link">Gear</Button>
+						</Link>
 					</div>
 
 					<div>

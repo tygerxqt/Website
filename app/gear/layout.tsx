@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "tygr.dev | Gear",
 	description:
-		"The entire list of the gear I use for productivity, development, and gaming.",
+		"The entire list of the gear I use for productivity, development, and entertainment.",
 	keywords: [
 		"tygrxqt gear",
 		"ty mason gear",

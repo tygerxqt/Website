@@ -58,7 +58,7 @@ export default async function GearPage() {
 					</h2>
 					<p className="text-sm">
 						The entire list of the gear I use for productivity, development, and
-						gaming.
+						entertainment.
 					</p>
 				</div>
 				<div className="flex flex-col gap-8 pb-4">
