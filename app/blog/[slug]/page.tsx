@@ -108,7 +108,7 @@ export default async function PostPage({
 
 	return (
 		<>
-			<div className="p-2 py-4 mx-auto max-w-[800px]">
+			<div className="p-2 py-4 mx-auto w-full max-w-[800px]">
 				<div className="flex flex-col gap-2 pb-2">
 					<h1 className="font-serif text-3xl font-bold sm:text-4xl">
 						{post.heading}
@@ -142,12 +142,12 @@ export default async function PostPage({
 					<Image
 						src={process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + post.hero}
 						alt="hero image"
-						height={400}
+						height={200}
 						width={800}
 						className="mt-4 border rounded-lg border-black/10 dark:border-white/10"
 					/>
 				</div>
-				<article className="min-w-full px-2 prose prose-quoteless prose-neutral dark:prose-invert">
+				<article className=" px-2 prose prose-quoteless prose-neutral dark:prose-invert">
 					<CustomMDX source={post.content} />
 				</article>
 			</div>
