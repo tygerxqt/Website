@@ -1,16 +1,17 @@
-import { createDirectus, rest, readItems } from "@directus/sdk";
+import { createDirectus, rest } from "@directus/sdk";
 
-interface Project {
+export interface Project {
 	id: number;
 	date_created: Date;
 	date_updated: Date;
 	name: string;
 	summary: string;
+	category: "personal" | "nord" | "lofu" | "contrib";
 	featured: boolean;
-	link: string;
-	private: boolean;
 	year: string;
 	image: string;
+	github_url: string;
+	deploy_url: string | undefined;
 }
 
 export interface Image {

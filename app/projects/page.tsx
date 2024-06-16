@@ -1,4 +1,5 @@
 import ProjectItem from "@/app/projects/item";
+import ProjectCard from "@/app/projects/card";
 import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
@@ -17,18 +18,31 @@ export default async function ProjectsPage() {
 						them.
 					</p>
 				</div>
-				{projects.map((p, i: number) => (
-					<>
-						<ProjectItem
-							key={i}
-							title={p.name}
-							desc={p.summary}
-							href={p.link}
-							year={p.year}
-							img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
-						/>
-					</>
-				))}
+				<div className="flex flex-col w-full gap-6 md:gap-3 px-2 md:px-0">
+					{projects.map((p, i: number) => (
+						<>
+							<div className="hidden md:block" key={i}>
+								<ProjectItem
+									title={p.name}
+									desc={p.summary}
+									href={p.github_url}
+									year={p.year}
+									img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
+								/>
+							</div>
+							<div className="block md:hidden" key={i}>
+								<ProjectCard
+									name={p.name}
+									summary={p.summary}
+									year={p.year}
+									img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
+									github_url={p.github_url}
+									deploy_url={p.deploy_url}
+								/>
+							</div>
+						</>
+					))}
+				</div>
 			</div>
 		</>
 	);

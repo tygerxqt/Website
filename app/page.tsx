@@ -8,6 +8,7 @@ import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 import Icons from "@/components/icons";
 import NameSwitch from "@/components/name-switch";
+import ProjectCard from "./projects/card";
 
 export default async function Home() {
 	const projects = await cms.request(readItems("projects"));
@@ -251,19 +252,38 @@ export default async function Home() {
 								</Button>
 							</Link>
 						</div>
-						<div className="flex flex-col gap-1 pt-2">
+						<div className="flex flex-col pt-2 gap-6 md:gap-3">
 							{projects
 								.filter((x) => x.featured === true)
 								.slice(0, 3)
 								.map((p, i: number) => (
-									<ProjectItem
-										title={p.name}
-										desc={p.summary}
-										href={p.link}
-										year={p.year}
-										img={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${p.image}`}
-										key={i}
-									/>
+									<>
+										<div className="hidden md:block" key={i}>
+											<ProjectItem
+												title={p.name}
+												desc={p.summary}
+												href={p.github_url}
+												year={p.year}
+												img={`${
+													process.env.NEXT_PUBLIC_CMS_URL ??
+													"https://cms.tygr.dev"
+												}/assets/${p.image}`}
+											/>
+										</div>
+										<div className="block md:hidden" key={i}>
+											<ProjectCard
+												name={p.name}
+												summary={p.summary}
+												year={p.year}
+												img={`${
+													process.env.NEXT_PUBLIC_CMS_URL ??
+													"https://cms.tygr.dev"
+												}/assets/${p.image}`}
+												github_url={p.github_url}
+												deploy_url={p.deploy_url}
+											/>
+										</div>
+									</>
 								))}
 						</div>
 					</div>
