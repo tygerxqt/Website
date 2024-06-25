@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		remotePatterns: [{ hostname: "cms.tygr.dev" }],
+		remotePatterns: [
+			{ hostname: "cms.tygr.dev" },
+			{ hostname: "lastfm.freetls.fastly.net" },
+		],
 	},
 	headers() {
 		return [
