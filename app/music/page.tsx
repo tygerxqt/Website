@@ -1,5 +1,6 @@
 import { getTopAlbums } from "@/lib/lastfm";
-import Image from "next/image";
+import { AlbumCard } from "./card";
+import { truncate } from "@/lib/utils";
 
 export default async function MusicPage() {
 	const albumData = await getTopAlbums();
@@ -11,30 +12,28 @@ export default async function MusicPage() {
 					<h2 className="text-2xl font-bold sm:text-3xl font-display">Music</h2>
 					<p className="text-sm">A digestable list of my top albums.</p>
 				</div>
-				<div className="flex flex-col gap-4 items-start pb-4">
-					{typeof albumData === "undefined" || albumData === null ? (
+				<div className="flex flex-col gap-4 items-center pb-4">
+					{albumData ? (
 						<>
-							<p>Failed to fetch top albums.</p>
-						</>
-					) : (
-						<>
-							<div className="grid grid-cols-3 grid-rows-2 gap-2">
+							<div className="grid gap-4 grid-cols-2 sm:grid-cols-3 grid-rows-subgrid w-full">
 								{albumData?.topalbums.album.slice(0, 48).map((album) => {
 									return (
 										<>
-											<div className="w-full border group		 border-black/10 dark:border-white/10 flex flex-col p-0 m-0 rounded-lg text-start transition-all">
-												<Image
-													width={1200}
-													height={1200}
-													src={album.image[3]["#text"]}
-													alt={album.name}
-													className="rounded-lg group-hover:zoom-in-105"
-												/>
-											</div>
+											<AlbumCard
+												key={album.name}
+												artist={album.artist.name}
+												name={truncate(album.name, 25)}
+												coverImage={album.image[3]["#text"]}
+												href={album.url}
+											/>
 										</>
 									);
 								})}
 							</div>
+						</>
+					) : (
+						<>
+							<p>Failed to fetch top albums.</p>
 						</>
 					)}
 				</div>
