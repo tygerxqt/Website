@@ -15,7 +15,7 @@ export default async function MusicPage() {
 				<div className="flex flex-col gap-4 items-center pb-4">
 					{albumData ? (
 						<>
-							<div className="grid gap-4 grid-cols-2 sm:grid-cols-3 grid-rows-subgrid w-full">
+							<div className="grid gap-4 grid-cols-1 xs:grid-cols-2	 sm:grid-cols-2 md:grid-cols-3 grid-rows-subgrid">
 								{albumData?.topalbums.album.slice(0, 48).map((album) => {
 									return (
 										<>
