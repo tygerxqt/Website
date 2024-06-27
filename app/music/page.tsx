@@ -12,10 +12,10 @@ export default async function MusicPage() {
 					<h2 className="text-2xl font-bold sm:text-3xl font-display">Music</h2>
 					<p className="text-sm">A digestable list of my top albums.</p>
 				</div>
-				<div className="flex flex-col gap-4 items-center pb-4">
+				<div className="flex flex-col gap-4 items-center pb-4 w-full">
 					{albumData ? (
 						<>
-							<div className="grid gap-4 grid-cols-1 xs:grid-cols-2	 sm:grid-cols-2 md:grid-cols-3 grid-rows-subgrid">
+							<div className="grid gap-4 grid-cols-2 sm:grid-cols-3">
 								{albumData?.topalbums.album.slice(0, 48).map((album) => {
 									return (
 										<>
