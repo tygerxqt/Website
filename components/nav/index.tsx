@@ -45,6 +45,9 @@ export default function NavBar() {
 						<Link href="/gear">
 							<Button variant="link">Gear</Button>
 						</Link>
+						<Link href="/music">
+							<Button variant="link">Music</Button>
+						</Link>
 					</div>
 
 					<div>

@@ -53,15 +53,14 @@ export default async function Footer() {
 											Gallery
 										</Button>
 									</Link>
-									{/* <Link href="/music"> */}
-									<Button
-										variant="link"
-										className="p-0 py-1 text-sm sm:text-base"
-										disabled
-									>
-										Music
-									</Button>
-									{/* </Link> */}
+									<Link href="/music">
+										<Button
+											variant="link"
+											className="p-0 py-1 text-sm sm:text-base"
+										>
+											Music
+										</Button>
+									</Link>
 								</div>
 								<div className="flex flex-col items-end justify-end gap-2">
 									<Link href="https://github.com/tygrxqt">

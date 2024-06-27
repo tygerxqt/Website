@@ -97,6 +97,16 @@ export default function MobileNav({
 										</Button>
 									</Drawer.Close>
 								</Link>
+								<Link href="/music" passHref className="w-full">
+									<Drawer.Close className="w-full">
+										<Button
+											variant="bordered"
+											className="flex flex-row w-full gap-2"
+										>
+											<Icons.Music className="w-6 h-6" /> Music
+										</Button>
+									</Drawer.Close>
+								</Link>
 							</div>
 						</div>
 					</div>
