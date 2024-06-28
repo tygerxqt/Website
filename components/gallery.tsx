@@ -37,12 +37,6 @@ export default function Gallery({
 								<div className="w-full backdrop-blur">
 									<div className="absolute bottom-0 items-center w-full p-4 text-white transition-opacity border-t-2 rounded-b-lg opacity-0 group-hover:opacity-100 border-black/10 dark:border-white/10 bg-black/70">
 										<div className="flex flex-row items-center gap-2">
-											<Icons.Tag className="w-4 h-4 font-medium" />
-											<p>
-												<b>{img.name}</b>
-											</p>
-										</div>
-										<div className="flex flex-row items-center gap-2">
 											<Icons.Camera className="w-4 h-4 font-medium" />
 											<p className="font-medium text-md">{img.camera}</p>
 										</div>
