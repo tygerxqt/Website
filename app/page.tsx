@@ -207,7 +207,7 @@ export default async function Home() {
 								the basics of HTML, CSS and with my pre-existing knowledge of
 								JavaScript, I created my{" "}
 								<Link
-									href="https://v1.tygr.dev/"
+									href="https://github.com/tygrvault/portfolio-v1"
 									target="_blank"
 									className="text-blue-500 dark:text-blue-400"
 								>
