@@ -33,7 +33,9 @@ export default async function MusicPage() {
 						</>
 					) : (
 						<>
-							<p>Failed to fetch top albums.</p>
+							<p className="text-neutral-500 dark:text-neutral-400">
+								Failed to fetch top albums.
+							</p>
 						</>
 					)}
 				</div>
