@@ -3,7 +3,9 @@ import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
 export default async function GalleryPage() {
-	const raw = await cms.request(readItems("gallery"));
+	const raw = await cms.request(
+		readItems("gallery", { sort: ["-date_created"] })
+	);
 
 	return (
 		<>

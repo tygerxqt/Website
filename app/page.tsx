@@ -10,7 +10,9 @@ import NameSwitch from "@/components/name-switch";
 import ProjectCard from "./projects/card";
 
 export default async function Home() {
-	const projects = await cms.request(readItems("projects"));
+	const projects = await cms.request(
+		readItems("projects", { sort: ["-date_created"] })
+	);
 
 	return (
 		<main className="flex flex-col items-center justify-center w-full">

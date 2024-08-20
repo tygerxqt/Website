@@ -4,9 +4,11 @@ import { readItems } from "@directus/sdk";
 import { Suspense } from "react";
 
 export default async function BlogPage() {
-	const posts = await cms.request(readItems("posts")).then((res) => {
-		return res.filter((post) => post.status === "published");
-	});
+	const posts = await cms
+		.request(readItems("posts", { sort: ["-date_created"] }))
+		.then((res) => {
+			return res.filter((post) => post.status === "published");
+		});
 
 	return (
 		<>

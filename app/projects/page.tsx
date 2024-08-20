@@ -3,7 +3,9 @@ import { cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 
 export default async function ProjectsPage() {
-	const projects = await cms.request(readItems("projects"));
+	const projects = await cms.request(
+		readItems("projects", { sort: ["-date_created"] })
+	);
 
 	return (
 		<>
