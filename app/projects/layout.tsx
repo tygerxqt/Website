@@ -13,7 +13,11 @@ export const metadata: Metadata = {
 	],
 };
 
-export default function ProjectLayout({ children }: { children: React.ReactNode }) {
+export default function ProjectLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center w-full">

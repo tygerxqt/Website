@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icons from "../icons";
 import { Button } from "../ui/button";
-import { getNowPlaying } from "./actions"
+import { getNowPlaying } from "./actions";
 
 export default async function NowPlaying() {
 	const data = await getNowPlaying();
@@ -15,10 +15,11 @@ export default async function NowPlaying() {
 			{data.is_playing && (
 				<Link href={data.item!.external_urls.spotify} target="_blank">
 					<Button variant="link" className="px-0">
-						{data.item!.name} - {data.item!.artists.map((artist) => artist.name).join(", ")}
+						{data.item!.name} -{" "}
+						{data.item!.artists.map((artist) => artist.name).join(", ")}
 					</Button>
 				</Link>
 			)}
 		</div>
-	)
+	);
 }

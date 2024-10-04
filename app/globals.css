@@ -1,8 +1,7 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
-	
+@tailwind components;
+@tailwind utilities;
+
 ::selection {
 	background-color: #47a3f3;
 	color: #fefefe;
@@ -99,7 +98,7 @@ h4 {
 
 .prose blockquote {
 	quotes: none;
-	@apply text-neutral-500 dark:text-neutral-400
+	@apply text-neutral-500 dark:text-neutral-400;
 }
 
 pre::-webkit-scrollbar {

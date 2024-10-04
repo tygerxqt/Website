@@ -1,11 +1,9 @@
-import type { Config } from "tailwindcss"
-import { fontFamily } from "tailwindcss/defaultTheme"
+import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
 	darkMode: ["class"],
-	content: [
-		"app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"
-	],
+	content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -29,11 +27,11 @@ const config = {
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 			screens: {
-				"xs": "400px"
-			}
+				xs: "400px",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

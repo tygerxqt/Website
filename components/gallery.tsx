@@ -12,10 +12,10 @@ export default function Gallery({
 }: {
 	photos: ImageType[];
 	breakPoints?:
-	| {
-		[key: number]: number;
-	}
-	| undefined;
+		| {
+				[key: number]: number;
+		  }
+		| undefined;
 }) {
 	return (
 		<>
@@ -29,7 +29,9 @@ export default function Gallery({
 							<BlurFade key={img.id} delay={0.25 + idx * 0.05} inView>
 								<div className="flex flex-col p-0 m-0 group">
 									<Image
-										src={process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + img.image}
+										src={
+											process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + img.image
+										}
 										alt={img.name}
 										width={1080}
 										height={1080}

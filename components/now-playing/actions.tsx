@@ -1,94 +1,94 @@
 export interface Status {
-	timestamp?: number
-	context?: Context
-	progress_ms?: number
-	item?: Item
-	currently_playing_type?: string
-	actions?: Actions
-	is_playing: boolean
+	timestamp?: number;
+	context?: Context;
+	progress_ms?: number;
+	item?: Item;
+	currently_playing_type?: string;
+	actions?: Actions;
+	is_playing: boolean;
 }
 
 export interface Context {
-	external_urls: ExternalUrls
-	href: string
-	type: string
-	uri: string
+	external_urls: ExternalUrls;
+	href: string;
+	type: string;
+	uri: string;
 }
 
 export interface ExternalUrls {
-	spotify: string
+	spotify: string;
 }
 
 export interface Item {
-	album: Album
-	artists: Artist2[]
-	available_markets: string[]
-	disc_number: number
-	duration_ms: number
-	explicit: boolean
-	external_ids: ExternalIds
-	external_urls: ExternalUrls
-	href: string
-	id: string
-	is_local: boolean
-	name: string
-	popularity: number
-	preview_url: string
-	track_number: number
-	type: string
-	uri: string
+	album: Album;
+	artists: Artist2[];
+	available_markets: string[];
+	disc_number: number;
+	duration_ms: number;
+	explicit: boolean;
+	external_ids: ExternalIds;
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	is_local: boolean;
+	name: string;
+	popularity: number;
+	preview_url: string;
+	track_number: number;
+	type: string;
+	uri: string;
 }
 
 export interface Album {
-	album_type: string
-	artists: Artist[]
-	available_markets: string[]
-	external_urls: ExternalUrls
-	href: string
-	id: string
-	images: Image[]
-	name: string
-	release_date: string
-	release_date_precision: string
-	total_tracks: number
-	type: string
-	uri: string
+	album_type: string;
+	artists: Artist[];
+	available_markets: string[];
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	images: Image[];
+	name: string;
+	release_date: string;
+	release_date_precision: string;
+	total_tracks: number;
+	type: string;
+	uri: string;
 }
 
 export interface Artist {
-	external_urls: ExternalUrls
-	href: string
-	id: string
-	name: string
-	type: string
-	uri: string
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	name: string;
+	type: string;
+	uri: string;
 }
 
 export interface Image {
-	height: number
-	url: string
-	width: number
+	height: number;
+	url: string;
+	width: number;
 }
 
 export interface Artist2 {
-	external_urls: ExternalUrls
-	href: string
-	id: string
-	name: string
-	type: string
-	uri: string
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	name: string;
+	type: string;
+	uri: string;
 }
 
 export interface ExternalIds {
-	isrc: string
+	isrc: string;
 }
 
 export interface Actions {
-	disallows: Disallows
+	disallows: Disallows;
 }
 
 export interface Disallows {
-	resuming: boolean
+	resuming: boolean;
 }
 
 export async function getAccessToken() {
@@ -116,8 +116,8 @@ export async function getAccessToken() {
 		},
 		body: new URLSearchParams({
 			grant_type: "refresh_token",
-			refresh_token
-		})
+			refresh_token,
+		}),
 	});
 
 	return res.json();
@@ -126,14 +126,17 @@ export async function getAccessToken() {
 export async function getNowPlaying() {
 	const { access_token } = await getAccessToken();
 
-	const res = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-		headers: {
-			Authorization: `Bearer ${access_token}`
-		},
-		next: {
-			revalidate: 30
+	const res = await fetch(
+		"https://api.spotify.com/v1/me/player/currently-playing",
+		{
+			headers: {
+				Authorization: `Bearer ${access_token}`,
+			},
+			next: {
+				revalidate: 30,
+			},
 		}
-	});
+	);
 
 	if (res.status === 204 || res.status > 400) {
 		const status: Status = { is_playing: false };

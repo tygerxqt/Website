@@ -35,7 +35,11 @@ export const metadata: Metadata = {
 	keywords: ["tygrxqt", "ty mason", "tygr dev", "tygr", "tyger796", "tyger"],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	return (
 		<html
 			lang="en"
