@@ -6,8 +6,6 @@ import { getNowPlaying } from "./actions"
 export default async function NowPlaying() {
 	const data = await getNowPlaying();
 
-	console.log(data.item?.artists);
-
 	return (
 		<div className="flex flex-row items-center gap-1 justify-center w-full py-4">
 			<Icons.Spotify className="w-6 h-6 mr-2" />
