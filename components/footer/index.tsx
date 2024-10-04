@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import NowPlaying from "../now-playing";
 
 export default async function Footer() {
 	return (
@@ -7,6 +8,7 @@ export default async function Footer() {
 			<footer className="flex flex-row items-center justify-center w-full">
 				<div className="flex flex-col items-center pt-4 w-full max-w-[800px]">
 					<div className="flex flex-col min-w-full">
+						<NowPlaying />
 						<hr className="w-full border border-black/10 dark:border-white/10" />
 						<div className="flex flex-col items-center gap-2 px-2 py-4">
 							<div className="grid justify-between w-full grid-cols-3">
