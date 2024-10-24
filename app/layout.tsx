@@ -1,5 +1,4 @@
 import { Inter, JetBrains_Mono, Literata, Sora } from "next/font/google";
-import Providers from "./providers";
 
 import "./globals.css";
 
@@ -7,6 +6,7 @@ import Footer from "@/components/footer";
 import { Metadata } from "next";
 import Script from "next/script";
 import NavBar from "@/components/nav";
+import { ThemeProvider } from "@/components/theme/provider";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -57,11 +57,16 @@ export default function RootLayout({
 					className="w-full min-h-screen p-2 sm:p-4 bg-neutral-100 dark:bg-neutral-900"
 					vaul-drawer-wrapper=""
 				>
-					<Providers>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
 						<NavBar />
 						{children}
 						<Footer />
-					</Providers>
+					</ThemeProvider>
 				</div>
 			</body>
 		</html>

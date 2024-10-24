@@ -20,7 +20,7 @@ export default async function Home() {
 				<div className="flex flex-row gap-2 sm:gap-4">
 					<div className="flex flex-row gap-2 justify-center items-start h-full max-h-[132px]">
 						<div className="flex-col items-center hidden gap-1 justify-evenly sm:flex">
-							<Link href="https://github.com/tygrxqt" target="_blank">
+							<Link href="https://github.com/tygrdotdev" target="_blank">
 								<Button
 									size={"icon"}
 									className="px-2 py-1 h-[40px] w-[40px] flex items-center"
@@ -43,7 +43,7 @@ export default async function Home() {
 							width={132}
 							height={132}
 							className="max-h-[132px] min-w-[132px] w-full rounded-md hidden md:block"
-							src="/profile.jpg"
+							src="/profile.png"
 							alt="Avatar"
 						/>
 					</div>
@@ -64,18 +64,7 @@ export default async function Home() {
 								full-stack{" "}
 								<span className="text-neutral-500">web developer. </span>
 								<br />
-								<span className="text-neutral-500">founder of </span>
-								<a
-									target="_blank"
-									href="https://lofu.studio"
-									className="inline-flex flex-row items-center hover:text-neutral-800 dark:hover:text-neutral-200"
-								>
-									lofu
-									<span>
-										<Icons.Lofu className="w-8 h-8 mx-2 dark:text-neutral-400 text-neutral-600" />
-									</span>
-								</a>
-								<span className="text-neutral-500">and </span>
+								<span className="text-neutral-500">ceo and founder of </span>
 								<a
 									target="_blank"
 									href="https://nordstud.io"
@@ -165,12 +154,12 @@ export default async function Home() {
 							<p className="text-neutral-600 dark:text-neutral-400">React</p>
 						</div>
 						<div className="flex flex-row gap-2">
-							<Icons.Vue className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Vue</p>
+							<Icons.Expo className="w-6 h-6" />
+							<p className="text-neutral-600 dark:text-neutral-400">Expo</p>
 						</div>
 						<div className="flex flex-row gap-2">
-							<Icons.Svelte className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Svelte</p>
+							<Icons.Vue className="w-6 h-6" />
+							<p className="text-neutral-600 dark:text-neutral-400">Vue</p>
 						</div>
 					</div>
 				</div>
@@ -218,17 +207,21 @@ export default async function Home() {
 								.
 								<br />
 								<br />
-								However, my journey has only begun; I&apos;m currently enrolled
-								in a Computer Science course at{" "}
+								Fastforward to today, I quit college so I can get started in the workplace,
+								joined {" "}
 								<Link
-									href="https://www.eastleigh.ac.uk/"
+									href="https://www.demystifydigital.co.uk/"
 									target="_blank"
 									className="text-blue-500 dark:text-blue-400"
 								>
-									Eastleigh College
-								</Link>{" "}
-								and I&apos;m constantly learning new languages, frameworks and
-								skills.
+									Demystify Digital
+								</Link>
+								{" "} as a Junior Developer where I build ecommerce sites
+								and manage the company&apos;s infrastructure, and I&apos;m still building
+								applications in my free time to help me learn new things, and benefit the world.
+								<br />
+								<br />
+								This is my journey so far, and I&apos;m excited to see where it takes me next.
 								<br />
 								<br />
 								<br />
