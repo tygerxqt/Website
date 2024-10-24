@@ -81,7 +81,7 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-row items-center gap-2 pt-2 sm:hidden">
-					<Link href="https://github.com/tygrdev" target="_blank">
+					<Link href="https://github.com/tygrdotdev" target="_blank">
 						<Button
 							size="sm"
 							className="flex flex-row items-center h-full gap-2 px-2 py-1 text-sm font-medium"
