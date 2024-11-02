@@ -65,7 +65,7 @@ export default async function Footer() {
 									</Link>
 								</div>
 								<div className="flex flex-col items-end justify-end gap-2">
-									<Link href="https://github.com/tygrxqt">
+									<Link href="https://github.com/tygrdotdev">
 										<Button
 											variant="link"
 											className="p-0 py-1 text-sm sm:text-base"

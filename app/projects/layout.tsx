@@ -4,7 +4,7 @@ export const metadata: Metadata = {
 	title: "tygr.dev | Projects",
 	description: "An entire list of projects I've worked or contributed.",
 	keywords: [
-		"tygrxqt projects",
+		"tygrdotdev projects",
 		"ty mason projects",
 		"tygr dev projects",
 		"tygr projects",

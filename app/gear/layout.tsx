@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 	description:
 		"The entire list of the gear I use for productivity, development, and entertainment.",
 	keywords: [
-		"tygrxqt gear",
+		"tygrdotdev gear",
 		"ty mason gear",
 		"tygr dev gear",
 		"tygr gear",

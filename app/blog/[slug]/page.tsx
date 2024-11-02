@@ -33,7 +33,7 @@ export const generateMetadata = async ({
 	let metadata: Metadata = {
 		title: post.heading,
 		description: post.summary,
-		publisher: "tygrxqt",
+		publisher: "tygrdotdev",
 		metadataBase: new URL(
 			process.env.NODE_ENV === "development"
 				? "http://localhost:3000"
@@ -124,7 +124,7 @@ export default async function PostPage({
 								className="rounded-full"
 							/>
 							<p className="text-sm text-neutral-500 dark:text-neutral-400">
-								tygrxqt •{" "}
+								tygrdotdev •{" "}
 							</p>
 							<time
 								dateTime={post.date_created}

@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve the site.
 title: "[BUG] "
 labels: bug
-assignees: tygrxqt
+assignees: tygrdotdev
 ---
 
 **Describe the bug**

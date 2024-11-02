@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 	description:
 		"All of my blog posts and tutorials. I write about web development, programming, and games.",
 	keywords: [
-		"tygrxqt blog",
+		"tygrdotdev blog",
 		"ty mason blog",
 		"tygr dev blog",
 		"tygr blog",

@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
 	title: "tygr.dev",
 	description: "a professional idiot.",
-	keywords: ["tygrxqt", "ty mason", "tygr dev", "tygr", "tyger796", "tyger"],
+	keywords: ["tygrdotdev", "ty mason", "tygr dev", "tygr", "tyger796", "tyger"],
 };
 
 export default function RootLayout({

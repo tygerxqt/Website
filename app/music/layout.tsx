@@ -4,7 +4,7 @@ export const metadata: Metadata = {
 	title: "tygr.dev | Music",
 	description: "A digestable list of my top albums.",
 	keywords: [
-		"tygrxqt music",
+		"tygrdotdev music",
 		"ty mason music",
 		"tygr dev music",
 		"tygr music",

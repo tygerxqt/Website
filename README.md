@@ -12,7 +12,7 @@
 # Running locally
 
 ```bash
-git clone https://github.com/tygrxqt/tygr.dev
+git clone https://github.com/tygrdotdev/tygr.dev
 cd tygr.dev
 pnpm install && pnpm dev
 ```

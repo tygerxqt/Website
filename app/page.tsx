@@ -57,7 +57,7 @@ export default async function Home() {
 								<span className="flex flex-row items-center gap-2">
 									<span className="text-neutral-500">yo, i&apos;m ty! aka</span>{" "}
 									<NameSwitch
-										names={["tygrdev", "tygrxqt", "tyger796", "whokilledcold"]}
+										names={["tygrdev", "tygrdotdev", "tyger796", "whokilledcold"]}
 									/>
 								</span>
 								<span className="text-neutral-500">a </span>
