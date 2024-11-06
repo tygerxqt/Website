@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	output: "standalone",
 	images: {
 		remotePatterns: [
 			{ hostname: "cms.tygr.dev" },
@@ -18,9 +19,9 @@ const nextConfig = {
 
 // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
-    default-src 'self' vercel.live analytics.tygr.dev;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' vercel.live analytics.tygr.dev;
-    style-src 'self' 'unsafe-inline';
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' lastfm.freetls.fastly.net;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
