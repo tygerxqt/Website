@@ -19,7 +19,7 @@
 		"framer-motion": "^11.11.11",
 		"lucide-react": "^0.438.0",
 		"motion": "^10.18.0",
-		"next": "^14.2.16",
+		"next": "^14.2.17",
 		"next-mdx-remote": "^5.0.0",
 		"next-themes": "^0.3.0",
 		"prop-types": "^15.8.1",
@@ -29,7 +29,7 @@
 		"react-wrap-balancer": "^1.1.1",
 		"reading-time": "^1.5.0",
 		"sharp": "^0.33.5",
-		"sugar-high": "^0.7.4",
+		"sugar-high": "^0.7.5",
 		"vaul": "^0.9.9"
 	},
 	"devDependencies": {
