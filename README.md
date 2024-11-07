@@ -3,7 +3,7 @@
 # Tech stack
 
 - Framework: [NextJS](https://nextjs.org/)
-- Deployment: [Vercel](https://vercel.com/)
+- Deployment: [Hetzner](https://hetzner.com/)
 - Content: [Contentlayer](https://www.contentlayer.dev/)
 - CMS: [Directus](https://directus.io/)
 - UI: [Radix](https://www.radix-ui.com/)
