@@ -8,6 +8,7 @@ import { readItems } from "@directus/sdk";
 import Icons from "@/components/icons";
 import NameSwitch from "@/components/name-switch";
 import ProjectCard from "./projects/card";
+import { ExternalLinkIcon } from "lucide-react";
 
 export default async function Home() {
 	const projects = await cms.request(
@@ -256,15 +257,27 @@ export default async function Home() {
 										name={p.name}
 										summary={p.summary}
 										year={p.year}
-										img={`${
-											process.env.NEXT_PUBLIC_CMS_URL ?? "https://cms.tygr.dev"
-										}/assets/${p.image}`}
+										img={`${process.env.NEXT_PUBLIC_CMS_URL ?? "https://cms.tygr.dev"
+											}/assets/${p.image}`}
 										github_url={p.github_url}
 										deploy_url={p.deploy_url}
 									/>
 								))}
 						</div>
 					</div>
+					<Link href="/discord">
+						<div className="flex flex-col gap-2 border border-black/10 dark:border-white/10 rounded-lg w-full p-4">
+							<div className="flex flex-row gap-2 items-center justify-between">
+								<h2 className="text-xl md:text-2xl font-bold font-display">
+									I have a Discord server!
+								</h2>
+								<ExternalLinkIcon className="w-6 h-6" />
+							</div>
+							<p className="text-neutral-500 dark:text-neutral-400">
+								I'm pretty active over there, and you can find some behind the scenes stuff under the #journal channel.
+							</p>
+						</div>
+					</Link>
 				</div>
 			</div>
 		</main>
