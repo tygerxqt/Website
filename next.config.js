@@ -15,6 +15,30 @@ const nextConfig = {
 			},
 		];
 	},
+	async redirects() {
+		return [
+			{
+				source: "/github",
+				destination: "https://github.com/tygrdotdev",
+				permanent: true,
+			},
+			{
+				source: "/bluesky",
+				destination: "https://bsky.app/profile/tygr.dev",
+				permanent: true,
+			},
+			{
+				source: "/instagram",
+				destination: "https://instagram.com/tygrdev",
+				permanent: true,
+			},
+			{
+				source: "/discord",
+				destination: "https://discord.gg/xFCZrQsfZQ",
+				permanent: true,
+			},
+		];
+	},
 };
 
 // https://nextjs.org/docs/advanced-features/security-headers
