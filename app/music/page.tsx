@@ -10,7 +10,7 @@ export default async function MusicPage() {
 			<div className="flex flex-col gap-2 pt-2 w-full max-w-[800px]">
 				<div className="pb-4">
 					<h2 className="text-2xl font-bold sm:text-3xl font-display">Music</h2>
-					<p className="text-sm">A digestable list of my top albums.</p>
+					<p className="text-sm text-neutral-500 dark:text-neutral-400">A digestable list of my top albums.</p>
 				</div>
 				<div className="flex flex-col gap-4 items-center pb-4 w-full">
 					{albumData ? (

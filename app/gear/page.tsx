@@ -56,7 +56,7 @@ export default async function GearPage() {
 					<h2 className="text-2xl font-bold sm:text-3xl font-display">
 						My Gear
 					</h2>
-					<p className="text-sm">
+					<p className="text-sm text-neutral-500 dark:text-neutral-400">
 						The entire list of the gear I use for productivity, development, and
 						entertainment.
 					</p>
