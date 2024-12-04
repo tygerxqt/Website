@@ -132,9 +132,7 @@ export async function getNowPlaying() {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
 			},
-			next: {
-				revalidate: 30,
-			},
+			cache: "no-store"
 		}
 	);
 

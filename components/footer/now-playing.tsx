@@ -30,7 +30,8 @@ export default async function NowPlaying() {
 				</>
 			) : (
 				<Link href="https://open.spotify.com/user/z4is4ny666qn1njee0k6g77o2?si=275c31679b264854" target="_blank">
-					<Button variant="link" className="px-0">
+						<Button variant="link" className="px-0 flex flex-row">
+							<Icons.Spotify className="w-6 h-6 mr-2" />
 						Spotify - Nothing Playing
 					</Button>
 				</Link>
