@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Icons from "../icons";
-import { Button } from "../ui/button";
-import { getNowPlaying } from "./actions";
+import Icons from "../../icons";
+import { Button } from "../../ui/button";
+import { getNowPlaying } from "../actions";
+import TrackName from "@/components/footer/now-playing/track-name";
 
 export default async function NowPlaying() {
 	const data = await getNowPlaying();
@@ -17,21 +18,13 @@ export default async function NowPlaying() {
 								Listening to:
 							</span>
 						</div>
-
-					<Link href={data.item!.external_urls.spotify} target="_blank">
-						<Button variant="link" className="px-0">
-								<span className="overflow-ellipsis line-clamp-1 w-fit">
-							{data.item!.name} -{" "}
-							{data.item!.artists.map((artist) => artist.name).join(", ")}
-								</span>
-						</Button>
-					</Link>
+						<TrackName track={data} />
 					</div>
 				</>
 			) : (
 				<Link href="https://open.spotify.com/user/z4is4ny666qn1njee0k6g77o2?si=275c31679b264854" target="_blank">
-						<Button variant="link" className="px-0 flex flex-row">
-							<Icons.Spotify className="w-6 h-6 mr-2" />
+					<Button variant="link" className="px-0 flex flex-row">
+						<Icons.Spotify className="w-6 h-6 mr-2" />
 						Spotify - Nothing Playing
 					</Button>
 				</Link>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import NowPlaying from "./now-playing";
+import NowPlaying from "@/components/footer/now-playing";
 
 export default async function Footer() {
 	return (
