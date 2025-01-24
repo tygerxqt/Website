@@ -44,9 +44,11 @@ export default function ProjectCard({
 									<Icons.Link className="w-5 h-5" />
 								</Link>
 							)}
-							<Link href={github_url}>
-								<Icons.Github className="w-5 h-5" />
-							</Link>
+							{github_url && (
+								<Link href={github_url}>
+									<Icons.Github className="w-5 h-5" />
+								</Link>
+							)}
 						</div>
 					</div>
 					<p className="text-sm sm:text-md">{summary}</p>
