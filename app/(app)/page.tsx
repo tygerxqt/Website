@@ -3,17 +3,24 @@ import Link from "next/link";
 import { Balancer } from "react-wrap-balancer";
 import { TextBlockWrapper } from "@/components/ui/text-block-wrapper";
 import { Button } from "@/components/ui/button";
-import { cms } from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 import Icons from "@/components/icons";
 import NameSwitch from "@/components/name-switch";
 import ProjectCard from "./projects/card";
-import { ExternalLinkIcon } from "lucide-react";
+import { getPayload } from "payload";
+import config from "@payload-config";
+import { Media } from "@/payload-types";
 
 export default async function Home() {
-	const projects = await cms.request(
-		readItems("projects", { sort: ["-date_created"] })
-	);
+	const payload = await getPayload({ config });
+	const projects = await payload.find({
+		collection: "projects",
+		limit: 50,
+		where: {
+			featured: {
+				equals: true,
+			},
+		},
+	});
 
 	return (
 		<main className="flex flex-col items-center justify-center w-full">
@@ -21,7 +28,10 @@ export default async function Home() {
 				<div className="flex flex-row gap-2 sm:gap-4">
 					<div className="flex flex-row gap-2 justify-center items-start h-full max-h-[132px]">
 						<div className="flex-col items-center hidden gap-1 justify-evenly sm:flex">
-							<Link href="https://github.com/tygrdotdev" target="_blank">
+							<Link
+								href="https://github.com/tygrdotdev"
+								target="_blank"
+							>
 								<Button
 									size={"icon"}
 									className="px-2 py-1 h-[40px] w-[40px] flex items-center"
@@ -29,13 +39,25 @@ export default async function Home() {
 									<Icons.Github className="w-full h-full" />
 								</Button>
 							</Link>
-							<Link href="https://bsky.app/profile/tygr.dev" target="_blank">
-								<Button size={"icon"} className="px-2 py-1 h-[40px] w-[40px]">
+							<Link
+								href="https://bsky.app/profile/tygr.dev"
+								target="_blank"
+							>
+								<Button
+									size={"icon"}
+									className="px-2 py-1 h-[40px] w-[40px]"
+								>
 									<Icons.Bluesky className="w-full h-full" />
 								</Button>
 							</Link>
-							<Link href="https://instagram.com/tygrdev" target="_blank">
-								<Button size={"icon"} className="px-2 py-1 h-[40px] w-[40px]">
+							<Link
+								href="https://instagram.com/tygrdev"
+								target="_blank"
+							>
+								<Button
+									size={"icon"}
+									className="px-2 py-1 h-[40px] w-[40px]"
+								>
 									<Icons.Instagram className="w-full h-full" />
 								</Button>
 							</Link>
@@ -53,19 +75,30 @@ export default async function Home() {
 						<small className="text-sm text-neutral-500">
 							any ~ he/him • 18 • UK
 						</small>
-						<p className="items-center w-full text-2xl font-bold tracking-[0.010em] sm:text-3xl font-display font">
+						<span className="items-center w-full text-2xl font-bold tracking-[0.010em] sm:text-3xl font-display font">
 							<Balancer>
 								<span className="flex flex-row items-center gap-2">
-									<span className="text-neutral-500">yo, i&apos;m ty! aka</span>{" "}
+									<span className="text-neutral-500">
+										yo, i&apos;m ty! aka
+									</span>{" "}
 									<NameSwitch
-										names={["tygrdev", "tygrdotdev", "tyger796", "whokilledcold"]}
+										names={[
+											"tygrdev",
+											"tygrdotdev",
+											"tygrxqt",
+											"tyger796",
+										]}
 									/>
 								</span>
 								<span className="text-neutral-500">a </span>
 								full-stack{" "}
-								<span className="text-neutral-500">web developer. </span>
+								<span className="text-neutral-500">
+									web developer.{" "}
+								</span>
 								<br />
-								<span className="text-neutral-500">ceo and founder of </span>
+								<span className="text-neutral-500">
+									ceo and founder of{" "}
+								</span>
 								<a
 									target="_blank"
 									href="https://nordstud.io"
@@ -77,7 +110,7 @@ export default async function Home() {
 									</span>
 								</a>
 							</Balancer>
-						</p>
+						</span>
 					</div>
 				</div>
 
@@ -90,7 +123,10 @@ export default async function Home() {
 							<Icons.Github className="w-full h-full" /> GitHub
 						</Button>
 					</Link>
-					<Link href="https://bsky.app/profile/tygr.dev" target="_blank">
+					<Link
+						href="https://bsky.app/profile/tygr.dev"
+						target="_blank"
+					>
 						<Button
 							size="sm"
 							className="flex flex-row items-center h-full gap-2 px-2 py-1 text-sm font-medium"
@@ -104,7 +140,8 @@ export default async function Home() {
 							size="sm"
 							className="flex flex-row items-center h-full gap-2 px-2 py-1 text-sm font-medium"
 						>
-							<Icons.Instagram className="w-full h-full" /> Instagram
+							<Icons.Instagram className="w-full h-full" />{" "}
+							Instagram
 						</Button>
 					</Link>
 				</div>
@@ -120,11 +157,15 @@ export default async function Home() {
 						</div>
 						<div className="flex flex-row gap-2">
 							<Icons.Rust className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Rust</p>
+							<p className="text-neutral-600 dark:text-neutral-400">
+								Rust
+							</p>
 						</div>
 						<div className="flex flex-row gap-2">
 							<Icons.Golang className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Golang</p>
+							<p className="text-neutral-600 dark:text-neutral-400">
+								Golang
+							</p>
 						</div>
 					</div>
 					<div className="flex flex-col gap-3">
@@ -152,15 +193,21 @@ export default async function Home() {
 						<p className="text-xl font-semibold">Frameworks</p>
 						<div className="flex flex-row gap-2">
 							<Icons.React className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">React</p>
+							<p className="text-neutral-600 dark:text-neutral-400">
+								React
+							</p>
 						</div>
 						<div className="flex flex-row gap-2">
-							<Icons.Expo className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Expo</p>
+							<Icons.Tauri className="w-6 h-6" />
+							<p className="text-neutral-600 dark:text-neutral-400">
+								Tauri
+							</p>
 						</div>
 						<div className="flex flex-row gap-2">
 							<Icons.Vue className="w-6 h-6" />
-							<p className="text-neutral-600 dark:text-neutral-400">Vue</p>
+							<p className="text-neutral-600 dark:text-neutral-400">
+								Vue
+							</p>
 						</div>
 					</div>
 				</div>
@@ -180,24 +227,27 @@ export default async function Home() {
 							expandButtonTitle="Read more"
 						>
 							<p>
-								I discovered Discord in 2018 and regularly used the various bots
-								on the platform. After using them consistently, I was curious
-								about how they worked, so I asked Google. I looked at multiple
-								JavaScript tutorials and tried to create my bot for people to
-								use.
+								I discovered Discord in 2018 and regularly used
+								the various bots on the platform. After using
+								them consistently, I was curious about how they
+								worked, so I asked Google. I looked at multiple
+								JavaScript tutorials and tried to create my bot
+								for people to use.
 								<br />
 								<br />
-								After a while, I ran out of ideas for new things to add to these
-								bots. However, there was one thing that I couldn&apos;t get my
-								mind off. Some popular bots had websites you could visit,
-								allowing you to control the bot! Now THAT was cool, and I wanted
-								it for myself.
+								After a while, I ran out of ideas for new things
+								to add to these bots. However, there was one
+								thing that I couldn&apos;t get my mind off. Some
+								popular bots had websites you could visit,
+								allowing you to control the bot! Now THAT was
+								cool, and I wanted it for myself.
 								<br />
 								<br />
-								Sooner or later, I switched my focus towards learning front-end
-								development, and lost interest in Discord bots. After learning
-								the basics of HTML, CSS and with my pre-existing knowledge of
-								JavaScript, I created my{" "}
+								Sooner or later, I switched my focus towards
+								learning front-end development, and lost
+								interest in Discord bots. After learning the
+								basics of HTML, CSS and with my pre-existing
+								knowledge of JavaScript, I created my{" "}
 								<Link
 									href="https://github.com/tygrvault/portfolio-v1"
 									target="_blank"
@@ -208,21 +258,24 @@ export default async function Home() {
 								.
 								<br />
 								<br />
-								Fastforward to today, I quit college so I can get started in the workplace,
-								joined {" "}
+								Fastforward to today, I quit college so I can
+								get started in the workplace, joined{" "}
 								<Link
 									href="https://www.demystifydigital.co.uk/"
 									target="_blank"
 									className="text-blue-500 dark:text-blue-400"
 								>
 									Demystify Digital
-								</Link>
-								{" "} as a Junior Developer where I build ecommerce sites
-								and manage the company&apos;s infrastructure, and I&apos;m still building
-								applications in my free time to help me learn new things, and benefit the world.
+								</Link>{" "}
+								as a Junior Developer where I build ecommerce
+								sites and manage the company&apos;s
+								infrastructure, and I&apos;m still building
+								applications in my free time to help me learn
+								new things, and benefit the world.
 								<br />
 								<br />
-								This is my journey so far, and I&apos;m excited to see where it takes me next.
+								This is my journey so far, and I&apos;m excited
+								to see where it takes me next.
 								<br />
 								<br />
 								<br />
@@ -235,7 +288,8 @@ export default async function Home() {
 							<div className="flex flex-col items-start">
 								<h2 className="text-2xl font-bold">Projects</h2>
 								<small className="text-sm text-neutral-500">
-									A few featured projects that I&apos;ve worked on!
+									A few featured projects that I&apos;ve
+									worked on!
 								</small>
 							</div>
 							<Link href="/projects">
@@ -248,21 +302,17 @@ export default async function Home() {
 							</Link>
 						</div>
 						<div className="grid grid-cols-1 md:grid-cols-2 pt-2 gap-6 md:gap-3">
-							{projects
-								.filter((x) => x.featured === true)
-								.slice(0, 4)
-								.map((p, i: number) => (
-									<ProjectCard
-										key={i}
-										name={p.name}
-										summary={p.summary}
-										year={p.year}
-										img={`${process.env.NEXT_PUBLIC_CMS_URL ?? "https://cms.tygr.dev"
-											}/assets/${p.image}`}
-										github_url={p.github_url}
-										deploy_url={p.deploy_url}
-									/>
-								))}
+							{projects.docs.slice(0, 4).map((p, i: number) => (
+								<ProjectCard
+									key={i}
+									name={p.name}
+									summary={p.summary}
+									year={p.year}
+									img={p.image as Media}
+									github_url={p.github_url}
+									deploy_url={p.deploy_url}
+								/>
+							))}
 						</div>
 					</div>
 					<Link href="/discord">
@@ -271,10 +321,12 @@ export default async function Home() {
 								<h2 className="text-xl md:text-2xl font-bold font-display">
 									I have a Discord server!
 								</h2>
-								<ExternalLinkIcon className="w-6 h-6" />
+								<Icons.External className="w-6 h-6" />
 							</div>
 							<p className="text-neutral-500 dark:text-neutral-400">
-								I'm pretty active over there, and you can find some behind the scenes stuff under the #journal channel.
+								I'm pretty active over there, and you can find
+								some behind the scenes stuff under the #journal
+								channel.
 							</p>
 						</div>
 					</Link>

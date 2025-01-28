@@ -2,6 +2,8 @@ import Icons from "@/components/icons";
 import { Tool, cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
 import Link from "next/link";
+import { getPayload } from "payload";
+import config from "payload.config";
 
 function GearItem({ tool }: { tool: Tool }) {
 	return (
@@ -26,13 +28,20 @@ function GearItem({ tool }: { tool: Tool }) {
 }
 
 export default async function GearPage() {
-	const rawGear = await cms.request(readItems("gear"));
+	const payload = await getPayload({ config });
+	const rawGear = await payload.find({
+		collection: "gear",
+	});
 
 	function categoriseItems(items: any, field: any) {
 		const categories: any = {};
 
-		rawGear.forEach((item) => {
-			const value = item["category"];
+		rawGear.docs.forEach((item) => {
+			const value = item["category"] as
+				| "desktop"
+				| "portable"
+				| "console"
+				| "other";
 
 			if (!categories[value]) {
 				categories[value] = [];
@@ -57,8 +66,8 @@ export default async function GearPage() {
 						My Gear
 					</h2>
 					<p className="text-sm text-neutral-500 dark:text-neutral-400">
-						The entire list of the gear I use for productivity, development, and
-						entertainment.
+						The entire list of the gear I use for productivity,
+						development, and entertainment.
 					</p>
 				</div>
 				<div className="flex flex-col gap-8 pb-4">

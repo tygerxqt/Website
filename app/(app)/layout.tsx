@@ -32,7 +32,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
 	title: "tygr.dev",
 	description: "a professional idiot.",
-	keywords: ["tygrdotdev", "ty mason", "tygr dev", "tygr", "tyger796", "tyger"],
+	keywords: [
+		"tygrdotdev",
+		"ty mason",
+		"tygr dev",
+		"tygr",
+		"tyger796",
+		"tyger",
+	],
 };
 
 export default function RootLayout({
@@ -44,6 +51,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={`${inter.variable} ${sora.variable} ${literata.variable} ${jetbrainsMono.variable}`}
+			suppressHydrationWarning
 		>
 			<body className="bg-neutral-100 dark:bg-neutral-900">
 				{process.env.NODE_ENV === "production" && (

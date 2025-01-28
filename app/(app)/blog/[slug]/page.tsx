@@ -1,18 +1,25 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Post, cms } from "@/lib/directus";
-import { readItem, readItems } from "@directus/sdk";
-import readingTime from "reading-time";
 import { Metadata } from "next";
-import { CustomMDX } from "./custom-mdx";
-import { unstable_noStore } from "next/cache";
+import { connection } from "next/server";
+import { getPayload } from "payload";
+import config from "payload.config";
+import { Media } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { jsxConverters } from "@/app/(app)/blog/[slug]/converters";
 
 export async function generateStaticParams() {
-	let posts: Post[] = await cms.request(readItems("posts")).then((res) => {
-		return res.filter((post) => post.status === "published");
+	let payload = await getPayload({ config });
+	const posts = await payload.find({
+		collection: "posts",
+		where: {
+			status: {
+				equals: "published",
+			},
+		},
 	});
 
-	return posts.map((post) => {
+	return posts.docs.map((post) => {
 		return {
 			slug: post.slug,
 		};
@@ -22,17 +29,27 @@ export async function generateStaticParams() {
 export const generateMetadata = async ({
 	params,
 }: {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 }) => {
-	const post = await cms.request(readItem("posts", params.slug)).then((res) => {
-		return res;
+	const slug = (await params).slug;
+	let payload = await getPayload({ config });
+	const post = await payload.find({
+		collection: "posts",
+		where: {
+			status: {
+				equals: "published",
+			},
+			slug: {
+				equals: slug,
+			},
+		},
 	});
 
-	if (!post) return;
+	if (post.docs.length < 1) return;
 
 	let metadata: Metadata = {
-		title: post.heading,
-		description: post.summary,
+		title: post.docs[0].heading,
+		description: post.docs[0].summary,
 		publisher: "tygrdotdev",
 		metadataBase: new URL(
 			process.env.NODE_ENV === "development"
@@ -41,11 +58,13 @@ export const generateMetadata = async ({
 		),
 
 		openGraph: {
-			title: post.heading,
-			description: post.summary,
+			title: post.docs[0].heading,
+			description: post.docs[0].summary,
 			images: [
 				{
-					url: process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + post.hero,
+					url:
+						(post.docs[0].hero as Media).url ||
+						"/assets/hero-placeholder.png",
 					width: 800,
 					height: 600,
 				},
@@ -58,8 +77,8 @@ export const generateMetadata = async ({
 	return metadata;
 };
 
-function formatDate(date: string) {
-	unstable_noStore();
+async function formatDate(date: string) {
+	await connection();
 	let currentDate = new Date();
 	if (!date.includes("T")) {
 		date = `${date}T00:00:00`;
@@ -94,15 +113,24 @@ function formatDate(date: string) {
 export default async function PostPage({
 	params,
 }: {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 }) {
-	const post: Post = await cms
-		.request(readItem("posts", params.slug))
-		.then((res) => {
-			return res;
-		});
+	const slug = (await params).slug;
 
-	if (!post) {
+	let payload = await getPayload({ config });
+	const post = await payload.find({
+		collection: "posts",
+		where: {
+			status: {
+				equals: "published",
+			},
+			slug: {
+				equals: slug,
+			},
+		},
+	});
+
+	if (post.docs.length < 1) {
 		return notFound();
 	}
 
@@ -111,12 +139,12 @@ export default async function PostPage({
 			<div className="p-2 py-4 mx-auto w-full max-w-[800px]">
 				<div className="flex flex-col gap-2 pb-2">
 					<h1 className="font-serif text-3xl font-bold sm:text-4xl">
-						{post.heading}
+						{post.docs[0].heading}
 					</h1>
 					<div className="flex flex-row items-center justify-between gap-4">
 						<div className="flex flex-row items-center gap-2">
 							<Image
-								src="/profile.jpg"
+								src="/profile.png"
 								alt="T"
 								aria-label="Author avatar"
 								width={28}
@@ -127,20 +155,21 @@ export default async function PostPage({
 								tygrdotdev •{" "}
 							</p>
 							<time
-								dateTime={post.date_created}
+								dateTime={post.docs[0].date_created}
 								className="items-center text-sm text-neutral-500 dark:text-neutral-400"
 							>
-								{formatDate(post.date_created)}
+								{formatDate(post.docs[0].date_created)}
 							</time>
 						</div>
 						<div>
 							<p className="text-sm text-neutral-500 dark:text-neutral-400">
-								{readingTime(post.content).text}
+								{/* {readingTime()} read */}
 							</p>
 						</div>
 					</div>
 					<Image
-						src={process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + post.hero}
+						// Hero is required
+						src={(post.docs[0].hero as Media).url!}
 						alt="hero image"
 						height={200}
 						width={800}
@@ -148,7 +177,11 @@ export default async function PostPage({
 					/>
 				</div>
 				<article className=" px-2 prose prose-quoteless prose-neutral dark:prose-invert">
-					<CustomMDX source={post.content} />
+					<RichText
+						data={post.docs[0].content}
+						converters={jsxConverters}
+						className="mx-auto prose-neutral md:prose-md dark:prose-invert"
+					/>
 				</article>
 			</div>
 		</>

@@ -1,0 +1,11 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: tygrdev
+      POSTGRES_PASSWORD: VerySecurePassword123
+      POSTGRES_DB: tygrdev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data

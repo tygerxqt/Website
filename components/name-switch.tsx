@@ -9,7 +9,7 @@ export default function NameSwitch(
 	}: {
 		names: string[];
 	},
-	props: React.HTMLAttributes<HTMLSpanElement>
+	props?: React.HTMLAttributes<HTMLSpanElement>
 ) {
 	// pick and random name out of the list, but not the current one
 	const [mounted, setMounted] = React.useState(false);
@@ -28,16 +28,22 @@ export default function NameSwitch(
 			setName(names[newIndex]);
 		}, 4000);
 
+		const element = document.getElementById("name") as HTMLSpanElement;
+
 		if (mounted) {
 			animate(
-				"#name",
+				element,
 				{
 					opacity: [0, 1, 1, 0],
 					top: ["-1rem", "0px", "0px", "-1rem"],
 				},
 				{
 					duration: 4,
-					easing: [[0.25, 0.1, 0.25, 1], [0.25, 0.1, 0.25, 1], "ease"],
+					easing: [
+						[0.25, 0.1, 0.25, 1],
+						[0.25, 0.1, 0.25, 1],
+						"ease",
+					],
 					offset: [0, 0.125, 0.875, 1],
 				}
 			);
@@ -50,7 +56,11 @@ export default function NameSwitch(
 		<>
 			{mounted ? (
 				<div className="relative h-8 md:h-9">
-					<span {...props} className="absolute h-10 overflow-hidden" id="name">
+					<span
+						{...props}
+						className="absolute h-10 overflow-hidden"
+						id="name"
+					>
 						{name}.
 					</span>
 				</div>

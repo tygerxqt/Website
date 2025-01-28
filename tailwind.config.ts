@@ -1,16 +1,16 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config = {
-	darkMode: ["class"],
+	darkMode: "class",
 	content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["var(--font-inter)", ...fontFamily.sans],
-				display: ["var(--font-sora)", ...fontFamily.sans],
-				serif: ["var(--font-literata)", ...fontFamily.serif],
-				mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
+				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+				display: ["var(--font-sora)", ...defaultTheme.fontFamily.sans],
+				serif: ["var(--font-literata)", ...defaultTheme.fontFamily.serif],
+				mono: ["var(--font-jetbrains-mono)", ...defaultTheme.fontFamily.mono],
 			},
 			keyframes: {
 				"accordion-down": {

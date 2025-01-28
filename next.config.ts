@@ -1,5 +1,8 @@
+import { withPayload } from "@payloadcms/next/withPayload";
+import { NextConfig } from "next";
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
 	images: {
 		remotePatterns: [
 			{ hostname: "cms.tygr.dev" },
@@ -7,7 +10,7 @@ const nextConfig = {
 			{ hostname: "i.scdn.co" },
 		],
 	},
-	headers() {
+	async headers() {
 		return [
 			{
 				source: "/(.*)",
@@ -85,4 +88,4 @@ const securityHeaders = [
 	},
 ];
 
-module.exports = nextConfig;
+export default withPayload(nextConfig);
