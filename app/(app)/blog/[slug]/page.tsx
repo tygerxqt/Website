@@ -176,11 +176,11 @@ export default async function PostPage({
 						className="mt-4 border rounded-lg border-black/10 dark:border-white/10"
 					/>
 				</div>
-				<article className=" px-2 prose prose-quoteless prose-neutral dark:prose-invert">
+				<article className="px-2">
 					<RichText
 						data={post.docs[0].content}
 						converters={jsxConverters}
-						className="mx-auto prose-neutral md:prose-md dark:prose-invert"
+						className="prose prose-quoteless prose-neutral dark:prose-invert"
 					/>
 				</article>
 			</div>

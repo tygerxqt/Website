@@ -6,6 +6,7 @@ import { buildConfig } from 'payload'
 import { BlocksFeature, lexicalEditor, LinkFeature, UploadFeature } from "@payloadcms/richtext-lexical"
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { s3Storage } from "@payloadcms/storage-s3"
 
 // Collections
 import { Users } from '@/collections/Users'
@@ -86,6 +87,20 @@ export default buildConfig({
     }
   }),
   sharp,
-  plugins: [],
+  plugins: [s3Storage({
+    collections: {
+      media: true,
+    },
+    bucket: process.env.S3_BUCKET!,
+    config: {
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY!,
+        secretAccessKey: process.env.S3_SECRET_KEY!,
+      },
+      region: "eu-west-1",
+      endpoint: "https://cdn.tygr.dev",
+      forcePathStyle: true
+    },
+  })],
   telemetry: false
 })

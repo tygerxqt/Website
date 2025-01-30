@@ -3,13 +3,14 @@
 # Tech stack
 
 - Framework: [NextJS](https://nextjs.org/)
-- Deployment: [Hetzner](https://hetzner.com/)
-- Content: [Contentlayer](https://www.contentlayer.dev/)
-- CMS: [Directus](https://directus.io/)
-- UI: [Radix](https://www.radix-ui.com/)
+- Deployment: [Hetzner](https://hetzner.com/) / [Coolify](https://coolify.io)
+- CMS: [Payload](https://payloadcms.com/)
+- UI: [shacn/ui & Custom](https://ui.shadcn.com/)
 - Styling: [TailwindCSS](https://tailwindcss.com/)
 
 # Running locally
+
+You'll need a instance of Postgres and Minio.
 
 ```bash
 git clone https://github.com/tygrdotdev/tygr.dev

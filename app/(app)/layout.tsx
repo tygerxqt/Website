@@ -4,7 +4,6 @@ import "./globals.css";
 
 import Footer from "@/components/footer";
 import { Metadata } from "next";
-import Script from "next/script";
 import NavBar from "@/components/nav";
 import { ThemeProvider } from "@/components/theme/provider";
 
@@ -31,7 +30,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
 	title: "tygr.dev",
-	description: "a professional idiot.",
+	description:
+		"yo, i'm ty! aka tygrdev. a full-stack web & app developer and founder of nord studio.",
 	keywords: [
 		"tygrdotdev",
 		"ty mason",
@@ -54,15 +54,8 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className="bg-neutral-100 dark:bg-neutral-900">
-				{process.env.NODE_ENV === "production" && (
-					<Script
-						async
-						src="https://analytics.tygr.dev/script.js"
-						data-website-id="817137dd-63e0-4d02-bf17-a0f7723860b2"
-					/>
-				)}
 				<div
-					className="w-full min-h-screen p-2 sm:p-4 bg-neutral-100 dark:bg-neutral-900"
+					className="w-full min-h-screen p-2 sm:p-4"
 					vaul-drawer-wrapper=""
 				>
 					<ThemeProvider

@@ -1,15 +1,14 @@
 import Icons from "@/components/icons";
-import { Tool, cms } from "@/lib/directus";
-import { readItems } from "@directus/sdk";
+import { Gear } from "@/payload-types";
 import Link from "next/link";
 import { getPayload } from "payload";
 import config from "payload.config";
 
-function GearItem({ tool }: { tool: Tool }) {
+function GearItem({ tool }: { tool: Gear }) {
 	return (
 		<>
 			<div className="flex flex-col justify-between w-full group">
-				<Link href={tool.url} passHref target="_blank">
+				<Link href={tool.url ?? ""} passHref target="_blank">
 					<div className="flex flex-col gap-0">
 						<div className="flex flex-row items-center w-full gap-2">
 							<h2 className="text-lg font-medium group-hover:underline">
@@ -53,7 +52,7 @@ export default async function GearPage() {
 		return categories;
 	}
 
-	const tools: { [key: string]: Array<Tool> } = categoriseItems(
+	const tools: { [key: string]: Array<Gear> } = categoriseItems(
 		rawGear,
 		"category"
 	);

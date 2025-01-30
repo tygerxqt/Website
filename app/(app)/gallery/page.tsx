@@ -6,6 +6,8 @@ export default async function GalleryPage() {
 	const payload = await getPayload({ config });
 	const photos = await payload.find({
 		collection: "photos",
+		limit: 100,
+		// sort: ["-createdAt"],
 	});
 
 	return (

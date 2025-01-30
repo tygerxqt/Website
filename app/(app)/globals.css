@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::selection {
 	background-color: #47a3f3;
@@ -25,7 +27,7 @@
 }
 
 .prose .anchor {
-	@reference absolute invisible no-underline;
+	@apply absolute invisible no-underline;
 
 	margin-left: -1em;
 	padding-right: 0.5em;
@@ -35,57 +37,57 @@
 }
 
 .anchor:hover {
-	@reference visible;
+	@apply visible;
 }
 
 .prose a {
-	@reference transition-all decoration-slate-400 dark:decoration-slate-600 underline-offset-2 decoration-[0.1em];
+	@apply transition-all decoration-slate-400 dark:decoration-slate-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
-	@reference text-neutral-300 dark:text-neutral-700;
+	@apply text-neutral-300 dark:text-neutral-700;
 	content: "#";
 }
 
 .prose *:hover > .anchor {
-	@reference visible;
+	@apply visible;
 }
 
 .prose pre {
-	@reference overflow-x-auto border rounded-lg bg-neutral-50 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800;
+	@apply overflow-x-auto border rounded-lg bg-neutral-50 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800;
 }
 
 .prose code {
-	@reference px-1 py-0.5 rounded-lg;
+	@apply px-1 py-0.5 rounded-lg;
 }
 
 .prose pre code {
-	@reference p-0;
+	@apply p-0;
 	border: initial;
 	line-height: 1.5;
 }
 
 .prose code span {
-	@reference font-medium;
+	@apply font-medium;
 }
 
 .prose img {
 	/* Don't apply styles to next/image */
-	@reference m-0;
+	@apply m-0;
 }
 
 .prose h1,
 h2 {
-	@reference font-bold tracking-tight !important;
+	@apply font-bold tracking-tight !important;
 }
 
 .prose h3,
 h4 {
-	@reference font-semibold tracking-tighter !important;
+	@apply font-semibold tracking-tighter !important;
 }
 
 .prose strong {
-	@reference font-medium;
+	@apply font-medium;
 }
 
 .prose > :first-child {
@@ -96,7 +98,7 @@ h4 {
 
 .prose blockquote {
 	quotes: none;
-	@reference text-neutral-500 dark:text-neutral-400;
+	@apply text-neutral-500 dark:text-neutral-400;
 }
 
 pre::-webkit-scrollbar {

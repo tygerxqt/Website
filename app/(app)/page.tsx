@@ -86,25 +86,25 @@ export default async function Home() {
 											"tygrdev",
 											"tygrdotdev",
 											"tygrxqt",
-											"tyger796",
+											"whokilledcold",
 										]}
 									/>
 								</span>
 								<span className="text-neutral-500">a </span>
 								full-stack{" "}
 								<span className="text-neutral-500">
-									web developer.{" "}
+									web & app dev.{" "}
 								</span>
 								<br />
 								<span className="text-neutral-500">
-									ceo and founder of{" "}
+									founder of{" "}
 								</span>
 								<a
 									target="_blank"
 									href="https://nordstud.io"
 									className="inline-flex flex-row items-center hover:text-neutral-800 dark:hover:text-neutral-200"
 								>
-									nord
+									nord studio
 									<span>
 										<Icons.Nord className="w-8 h-8 mx-2 dark:text-neutral-400 text-neutral-600" />
 									</span>

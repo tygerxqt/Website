@@ -3,6 +3,9 @@ import { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
+	experimental: {
+		reactCompiler: true,
+	},
 	images: {
 		remotePatterns: [
 			{ hostname: "cms.tygr.dev" },

@@ -1,6 +1,4 @@
 import BlogCard from "@/components/blog/card";
-import { cms } from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 import { getPayload } from "payload";
 import { Suspense } from "react";
 import config from "payload.config";

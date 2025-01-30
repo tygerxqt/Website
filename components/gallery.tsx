@@ -1,11 +1,26 @@
 "use client";
 
-import Masonry from "react-responsive-masonry";
-import { ResponsiveMasonry } from "react-responsive-masonry";
 import Image from "next/image";
 import Icons from "./icons";
 import { BlurFade } from "./ui/blur-fade";
 import { Photo, Media } from "@/payload-types";
+import dynamic from "next/dynamic";
+
+const ResponsiveMasonry = dynamic(
+	() =>
+		import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
+	{
+		loading: () => <p>Loading...</p>,
+		ssr: false,
+	}
+);
+const Masonry = dynamic(
+	() => import("react-responsive-masonry").then((mod) => mod.default),
+	{
+		loading: () => <p>Loading...</p>,
+		ssr: false,
+	}
+);
 
 export default function Gallery({
 	photos,
@@ -36,7 +51,7 @@ export default function Gallery({
 										alt={(img.image as Media).alt}
 										width={1080}
 										height={1080}
-										quality={25}
+										quality={80}
 										className="object-cover object-center w-full h-full border rounded-lg border-black/10 dark:border-white/10"
 									/>
 									<div className="w-full backdrop-blur">
