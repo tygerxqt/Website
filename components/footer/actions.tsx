@@ -118,6 +118,9 @@ export async function getAccessToken() {
 			grant_type: "refresh_token",
 			refresh_token,
 		}),
+		next: {
+			revalidate: 3600,
+		},
 	});
 
 	return res.json();
@@ -132,7 +135,10 @@ export async function getNowPlaying() {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
 			},
-			cache: "no-store"
+			cache: "no-store",
+			next: {
+				revalidate: 0,
+			},
 		}
 	);
 

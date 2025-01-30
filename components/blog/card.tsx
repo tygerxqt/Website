@@ -1,4 +1,4 @@
-import { Post } from "@/lib/directus";
+import { Media, Post } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,10 +11,12 @@ export default function BlogCard({
 }) {
 	return (
 		<>
-			<Link href={`/blog/` + (archive ? "archive/" : "") + `${post.slug}`}>
+			<Link
+				href={`/blog/` + (archive ? "archive/" : "") + `${post.slug}`}
+			>
 				<button className="w-full max-h-[550px] border border-black/10 dark:border-white/10 flex flex-col p-0 m-0 rounded-lg text-start sm:hover:-translate-y-1 transition-transform">
 					<Image
-						src={process.env.NEXT_PUBLIC_CMS_URL + "/assets/" + post.card_img}
+						src={(post.card_img as Media).url!}
 						alt="blog post"
 						height={550}
 						width={400}
