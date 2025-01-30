@@ -1,10 +1,10 @@
 import Icons from "@/components/icons";
-import { Gear } from "@/payload-types";
+import { Tool } from "@/payload-types";
 import Link from "next/link";
 import { getPayload } from "payload";
 import config from "payload.config";
 
-function GearItem({ tool }: { tool: Gear }) {
+function GearItem({ tool }: { tool: Tool }) {
 	return (
 		<>
 			<div className="flex flex-col justify-between w-full group">
@@ -29,7 +29,7 @@ function GearItem({ tool }: { tool: Gear }) {
 export default async function GearPage() {
 	const payload = await getPayload({ config });
 	const rawGear = await payload.find({
-		collection: "gear",
+		collection: "tool",
 	});
 
 	function categoriseItems(items: any, field: any) {
@@ -52,7 +52,7 @@ export default async function GearPage() {
 		return categories;
 	}
 
-	const tools: { [key: string]: Array<Gear> } = categoriseItems(
+	const tools: { [key: string]: Array<Tool> } = categoriseItems(
 		rawGear,
 		"category"
 	);

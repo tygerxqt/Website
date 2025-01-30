@@ -1,9 +1,11 @@
+import 'dotenv/config'
+
 import path from 'path'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
 import { buildConfig } from 'payload'
-import { BlocksFeature, lexicalEditor, LinkFeature, UploadFeature } from "@payloadcms/richtext-lexical"
+import { lexicalEditor, LinkFeature, UploadFeature } from "@payloadcms/richtext-lexical"
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { s3Storage } from "@payloadcms/storage-s3"
@@ -14,7 +16,7 @@ import { Media } from '@/collections/Media'
 import { Projects } from '@/collections/Projects'
 import { Photos } from '@/collections/Photos'
 import { Post } from '@/collections/Post'
-import { Gear } from '@/collections/Gear'
+import { Tool } from '@/collections/Tool'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,7 +28,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Projects, Post, Photos, Gear],
+  collections: [Users, Media, Projects, Post, Photos, Tool],
   editor: lexicalEditor({
     features: ({ defaultFeatures, rootFeatures }) => [
       ...defaultFeatures,

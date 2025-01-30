@@ -16,7 +16,7 @@ export interface Config {
     projects: Project;
     posts: Post;
     photos: Photo;
-    gear: Gear;
+    tool: Tool;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -28,7 +28,7 @@ export interface Config {
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     photos: PhotosSelect<false> | PhotosSelect<true>;
-    gear: GearSelect<false> | GearSelect<true>;
+    tool: ToolSelect<false> | ToolSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -165,9 +165,9 @@ export interface Photo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "gear".
+ * via the `definition` "tool".
  */
-export interface Gear {
+export interface Tool {
   id: number;
   dob?: string | null;
   name: string;
@@ -205,8 +205,8 @@ export interface PayloadLockedDocument {
         value: number | Photo;
       } | null)
     | ({
-        relationTo: 'gear';
-        value: number | Gear;
+        relationTo: 'tool';
+        value: number | Tool;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,9 +330,9 @@ export interface PhotosSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "gear_select".
+ * via the `definition` "tool_select".
  */
-export interface GearSelect<T extends boolean = true> {
+export interface ToolSelect<T extends boolean = true> {
   dob?: T;
   name?: T;
   summary?: T;
