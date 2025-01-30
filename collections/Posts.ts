@@ -1,6 +1,6 @@
 import { CollectionConfig } from "payload";
 
-export const Post: CollectionConfig = {
+export const Posts: CollectionConfig = {
 	slug: "posts",
 	access: {
 		read: () => true,

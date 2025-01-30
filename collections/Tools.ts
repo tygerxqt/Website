@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload";
 
-export const Tool: CollectionConfig = {
-	slug: "tool",
+export const Tools: CollectionConfig = {
+	slug: "tools",
 	access: {
 		read: () => true,
 	},

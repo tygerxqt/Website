@@ -12,9 +12,9 @@ import { s3Storage } from "@payloadcms/storage-s3"
 import { Users } from '@/collections/Users'
 import { Media } from '@/collections/Media'
 import { Projects } from '@/collections/Projects'
+import { Posts } from '@/collections/Posts'
 import { Photos } from '@/collections/Photos'
-import { Post } from '@/collections/Post'
-import { Tool } from '@/collections/Tool'
+import { Tools } from '@/collections/Tools'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,7 +26,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Projects, Post, Photos, Tool],
+  collections: [Users, Media, Projects, Posts, Photos, Tools],
   editor: lexicalEditor({
     features: ({ defaultFeatures, rootFeatures }) => [
       ...defaultFeatures,

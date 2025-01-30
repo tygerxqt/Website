@@ -16,7 +16,7 @@ export interface Config {
     projects: Project;
     posts: Post;
     photos: Photo;
-    tool: Tool;
+    tools: Tool;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -28,7 +28,7 @@ export interface Config {
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     photos: PhotosSelect<false> | PhotosSelect<true>;
-    tool: ToolSelect<false> | ToolSelect<true>;
+    tools: ToolsSelect<false> | ToolsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -165,7 +165,7 @@ export interface Photo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tool".
+ * via the `definition` "tools".
  */
 export interface Tool {
   id: number;
@@ -205,7 +205,7 @@ export interface PayloadLockedDocument {
         value: number | Photo;
       } | null)
     | ({
-        relationTo: 'tool';
+        relationTo: 'tools';
         value: number | Tool;
       } | null);
   globalSlug?: string | null;
@@ -330,9 +330,9 @@ export interface PhotosSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tool_select".
+ * via the `definition` "tools_select".
  */
-export interface ToolSelect<T extends boolean = true> {
+export interface ToolsSelect<T extends boolean = true> {
   dob?: T;
   name?: T;
   summary?: T;

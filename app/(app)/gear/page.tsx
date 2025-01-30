@@ -29,7 +29,7 @@ function GearItem({ tool }: { tool: Tool }) {
 export default async function GearPage() {
 	const payload = await getPayload({ config });
 	const rawGear = await payload.find({
-		collection: "tool",
+		collection: "tools",
 	});
 
 	function categoriseItems(items: any, field: any) {
